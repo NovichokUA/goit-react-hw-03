@@ -3,6 +3,8 @@
 body {
   font-family: sans-serif;
   line-height: 1.5;
+  background-color: rgb(200, 188, 171);
+  padding: 100px;
 }
 
 h1,

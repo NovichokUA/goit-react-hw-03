@@ -3,7 +3,7 @@ import { ContactList } from "./Components/ContactList/ContactList.jsx";
 import { SearchBox } from "./Components/SearchBar/SearchBox.jsx";
 import { ContactForm } from "./Components/ContactForm/ContactForm.jsx";
 
-import "./App.css";
+import css from "../src/App.module.css";
 
 export function App() {
   const dataUserContact = [
@@ -42,11 +42,11 @@ export function App() {
   };
 
   return (
-    <>
-      <h1>Phonebook</h1>
+    <div className={css.mainContainer}>
+      <h1 className={css.title}>Phonebook</h1>
       <ContactForm onAddUser={addContact} />
       <SearchBox onSearch={setFilter} value={filter} />
       <ContactList usersData={hendalFilter} onDelete={deleteContact} />
-    </>
+    </div>
   );
 }

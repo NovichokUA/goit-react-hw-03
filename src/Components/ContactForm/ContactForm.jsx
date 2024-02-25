@@ -1,6 +1,31 @@
-import { Field, Form, Formik } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useId } from "react";
 import { nanoid } from "nanoid";
+import * as Yup from "yup";
+import css from "./ContactForm.module.css";
+
+import {
+  FaUserPlus,
+  FaPhone,
+  FaUser,
+  FaUserMinus,
+  FaSistrix,
+} from "react-icons/fa6";
+
+const ContactShema = Yup.object().shape({
+  name: Yup.string()
+    .trim()
+    .min(3, "Please enter your name. Minimum length of three characters.")
+    .max(50, "Too long!")
+    .required("This field is required"),
+  number: Yup.string()
+    .min(
+      10,
+      "Please enter your phone number. The minimum length is ten digits without a dash/thirteen with a dash."
+    )
+    .max(50, "Too long!")
+    .required("This field is required"),
+});
 
 export const ContactForm = ({ onAddUser }) => {
   const nameId = useId();
@@ -12,21 +37,33 @@ export const ContactForm = ({ onAddUser }) => {
         name: "",
         number: "",
       }}
+      validationSchema={ContactShema}
       onSubmit={(values, actions) => {
         onAddUser({ id: nanoid(), ...values });
         actions.resetForm();
       }}
     >
-      <Form>
-        <div>
+      <Form className={css.form}>
+        <div className={css.labelName}>
           <label htmlFor={nameId}>Name</label>
-          <Field name="name" id={nameId} />
+          <Field className={css.field} name="name" id={nameId} />
+          <FaUser className={css.icon} />
+          <span className={css.message}>
+            <ErrorMessage name="name" />
+          </span>
         </div>
-        <div>
+        <div className={css.labelNumber}>
           <label htmlFor={numberId}>Number</label>
-          <Field name="number" id={numberId} />
+          <Field className={css.field} name="number" id={numberId} />
+          <FaPhone className={css.icon} />
+          <span className={css.message}>
+            <ErrorMessage name="number" />
+          </span>
         </div>
-        <button type="submit">Add Contact</button>
+        <button className={css.btn} type="submit">
+          <FaUserPlus />
+          Add Contact
+        </button>
       </Form>
     </Formik>
   );
