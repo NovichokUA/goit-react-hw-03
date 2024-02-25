@@ -1,4 +1,4 @@
-import { Contact } from "../Contact/Contact";
+import { Contact } from "../Contact/contact.jsx";
 import css from "../ContactList/ContactList.module.css";
 import { FaUserMinus } from "react-icons/fa6";
 
