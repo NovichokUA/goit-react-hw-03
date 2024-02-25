@@ -1,5 +1,6 @@
-import { Contact } from "../Contact/contact";
+import { Contact } from "../Contact/Contact";
 import css from "../ContactList/ContactList.module.css";
+import { FaUserMinus } from "react-icons/fa6";
 
 export const ContactList = ({ usersData, onDelete }) => {
   return (
@@ -8,10 +9,9 @@ export const ContactList = ({ usersData, onDelete }) => {
         {usersData.map((user) => {
           return (
             <li className={css.listItem} key={user.id}>
-              <div className={css.description}>
-                <Contact user={user} />
-              </div>
+              <Contact user={user} />
               <button className={css.btn} onClick={() => onDelete(user.id)}>
+                <FaUserMinus className={css.icon} />
                 Delete
               </button>
             </li>

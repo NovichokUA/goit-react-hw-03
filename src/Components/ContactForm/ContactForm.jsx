@@ -4,13 +4,7 @@ import { nanoid } from "nanoid";
 import * as Yup from "yup";
 import css from "./ContactForm.module.css";
 
-import {
-  FaUserPlus,
-  FaPhone,
-  FaUser,
-  FaUserMinus,
-  FaSistrix,
-} from "react-icons/fa6";
+import { FaUserPlus, FaPhone, FaUser } from "react-icons/fa6";
 
 const ContactShema = Yup.object().shape({
   name: Yup.string()
@@ -23,7 +17,7 @@ const ContactShema = Yup.object().shape({
       10,
       "Please enter your phone number. The minimum length is ten digits without a dash/thirteen with a dash."
     )
-    .max(50, "Too long!")
+    .max(13, "Too long!")
     .required("This field is required"),
 });
 

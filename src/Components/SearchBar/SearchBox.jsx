@@ -1,6 +1,6 @@
 import css from "./SearchBox.module.css";
 import { useId } from "react";
-import { FaUser } from "react-icons/fa6";
+import { FaSistrix } from "react-icons/fa6";
 
 export const SearchBox = ({ value, onSearch }) => {
   const id = useId();
@@ -14,7 +14,7 @@ export const SearchBox = ({ value, onSearch }) => {
         value={value}
         onChange={(e) => onSearch(e.target.value)}
       />
-      <FaUser className={css.icon} />
+      <FaSistrix className={css.icon} />
     </div>
   );
 };

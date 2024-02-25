@@ -1,5 +1,10 @@
-.description {
-    align-items: start;
+.icon {
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+}
+
+.container {
     display: flex;
     flex-direction: column;
 }
