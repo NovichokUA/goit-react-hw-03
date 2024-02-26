@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ContactList } from "./Components/ContactList/ContactList.jsx";
-import { SearchBox } from "./Components/SearchBar/SearchBox.jsx";
+import { SearchBox } from "./Components/SearchBox/SearchBox.jsx";
 import { ContactForm } from "./Components/ContactForm/ContactForm.jsx";
 
 import css from "../src/App.module.css";
@@ -44,7 +44,7 @@ export function App() {
   return (
     <div className={css.mainContainer}>
       <h1 className={css.title}>Phonebook</h1>
-      <ContactForm onAddUser={addContact} />
+      <ContactForm onAdd={addContact} />
       <SearchBox onSearch={setFilter} value={filter} />
       <ContactList usersData={hendalFilter} onDelete={deleteContact} />
     </div>

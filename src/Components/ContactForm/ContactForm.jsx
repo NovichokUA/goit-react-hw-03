@@ -21,7 +21,7 @@ const ContactShema = Yup.object().shape({
     .required("This field is required"),
 });
 
-export const ContactForm = ({ onAddUser }) => {
+export const ContactForm = ({ onAdd }) => {
   const nameId = useId();
   const numberId = useId();
 
@@ -33,7 +33,7 @@ export const ContactForm = ({ onAddUser }) => {
       }}
       validationSchema={ContactShema}
       onSubmit={(values, actions) => {
-        onAddUser({ id: nanoid(), ...values });
+        onAdd({ id: nanoid(), ...values });
         actions.resetForm();
       }}
     >
