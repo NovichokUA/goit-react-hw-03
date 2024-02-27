@@ -25,7 +25,11 @@ export function App() {
     });
   };
 
-  const hendalFilter = contacts.filter((user) =>
+  function filtered(e) {
+    setFilter(e.target.value);
+  }
+
+  const filteredContact = contacts.filter((user) =>
     user.name.toLowerCase().includes(filter.toLowerCase())
   );
 
@@ -36,7 +40,7 @@ export function App() {
   const deleteContact = (userId) => {
     setContacts((prevUsers) =>
       prevUsers.filter((user) => {
-        return user.id != userId;
+        return user.id !== userId;
       })
     );
   };
@@ -45,8 +49,8 @@ export function App() {
     <div className={css.mainContainer}>
       <h1 className={css.title}>Phonebook</h1>
       <ContactForm onAdd={addContact} />
-      <SearchBox onSearch={setFilter} value={filter} />
-      <ContactList usersData={hendalFilter} onDelete={deleteContact} />
+      <SearchBox onSearch={filtered} value={filter} />
+      <ContactList contactsData={filteredContact} onDelete={deleteContact} />
     </div>
   );
 }

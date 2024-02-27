@@ -12,7 +12,7 @@ export const SearchBox = ({ value, onSearch }) => {
         id={id}
         type="text"
         value={value}
-        onChange={(e) => onSearch(e.target.value)}
+        onChange={onSearch}
       />
       <FaSistrix className={css.icon} />
     </div>

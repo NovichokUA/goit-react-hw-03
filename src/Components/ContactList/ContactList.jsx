@@ -1,11 +1,11 @@
 import { Contact } from "../Contact/contact.jsx";
 import css from "../ContactList/ContactList.module.css";
 
-export const ContactList = ({ usersData, onDelete }) => {
+export const ContactList = ({ contactsData, onDelete }) => {
   return (
     <>
       <ul className={css.list}>
-        {usersData.map((user) => {
+        {contactsData.map((user) => {
           return (
             <li key={user.id}>
               <Contact user={user} onDelete={onDelete} />
