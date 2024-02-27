@@ -29,17 +29,21 @@ export function App() {
     setFilter(e.target.value);
   }
 
-  const filteredContact = contacts.filter((user) =>
-    user.name.toLowerCase().includes(filter.toLowerCase())
-  );
+  const filterContact = () => {
+    return contacts.filter((user) =>
+      user.name.toLowerCase().trim().includes(filter.toLowerCase().trim())
+    );
+  };
+
+  const filteredContact = filterContact();
 
   useEffect(() => {
     window.localStorage.setItem("my-key", JSON.stringify(contacts));
   }, [contacts]);
 
   const deleteContact = (userId) => {
-    setContacts((prevUsers) =>
-      prevUsers.filter((user) => {
+    setContacts((prevContacts) =>
+      prevContacts.filter((user) => {
         return user.id !== userId;
       })
     );
